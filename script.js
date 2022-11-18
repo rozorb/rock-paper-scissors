@@ -19,8 +19,15 @@ function getComputerChoice() {
 //return results of function call not console.log, return will be used later
 
 function playRound(playerSelection, computerSelection) {
-    let player = prompt("What is your choice?").toLowerCase();
+    let player = playerSelection;
+    console.log("this is player: ", player);
+    let computer = computerSelection.toLowerCase();
+    console.log("this is computer", computer);
 }
+
+let playerChoice = prompt("What is your choice?").toLowerCase();
+playRound(playerChoice, getComputerChoice());
+
 let hand = getComputerChoice();
 console.log(hand);
 const playerSelection = "rock";
