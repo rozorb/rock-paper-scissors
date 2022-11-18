@@ -32,12 +32,19 @@ function playRound(playerSelection, computerSelection) {
     } 
 }
 
-let playerChoice = prompt("What is your choice?").toLowerCase();
-console.log(playRound(playerChoice, getComputerChoice().toLowerCase()));
+//get input on the users choice
 
-
-//const computerSelection = getComputedStyle();
-//console.log(playRound(playerSelection, computerSelection));
+console.log(playRound(playerChoice, getComputerChoice()));
 
 //write a function called game()
 //call playRound() inside of it/play 5 round game that keeps score and reports a winner or loser
+function game() {
+    let phrase;
+    for (var i = 0; i < 5; i++) {
+        let playerChoice = prompt("What is your choice?").toLowerCase();
+        phrase = playRound(playerChoice, getComputerChoice());
+
+
+    }
+
+}
