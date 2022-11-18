@@ -1,10 +1,9 @@
-//function getComputerChoice that will return rock, paper, or scissors
+//function that will return rock, paper, or scissors choice for computer
 function getComputerChoice() {
-    let chance = Math.floor(Math.random() * 3);
-    console.log(chance);
-    if(chance === 0) {
+    let choice = Math.floor(Math.random() * 3); //0-2 
+    if(choice === 0) {
         return 'rock';
-    } else if(chance === 1) {
+    } else if(choice === 1) {
         return 'paper';
     }   else {
         return 'scissors'
@@ -12,25 +11,31 @@ function getComputerChoice() {
 }
 
 //funtion that plays a single round of rock papers scissors, with two parameters
-//parameters playerSelection & computerSelection, then a string declaring the winner
-//Ex: "You Lose! Paper beats Rock"
-//playerSelection parameters are case-insensitive
-
-//return results of function call not console.log, return will be used later
-
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection;
-    console.log("this is player: ", player);
-    let computer = computerSelection.toLowerCase();
-    console.log("this is computer", computer);
+    let computer = computerSelection;
+    //conditions deciding who wins round;
+    if(player === computer) {
+        return 'There is no winner!';
+    } else if (player === 'rock' && computer === 'paper') {
+        return "You Lose! Paper beats Rock";
+    } else if (player === 'rock' && computer === 'scissors') {
+        return "You Win! Rock beats Scissors"
+    } else if (player === 'paper' && computer === 'rock') {
+        return "You Win! Paper beats Rock";
+    } else if (player === 'paper' && computer === 'scissors') {
+        return "You Lose! Scissors beats Paper"
+    } else if (player === 'scissors' && computer === 'paper') {
+        return "You win! Scissors beats Paper";
+    } else if (player === 'scissors' && computer === 'rock') {
+        return "You Lose! Rock beats Scissors"
+    } 
 }
 
 let playerChoice = prompt("What is your choice?").toLowerCase();
-playRound(playerChoice, getComputerChoice());
+console.log(playRound(playerChoice, getComputerChoice().toLowerCase()));
 
-let hand = getComputerChoice();
-console.log(hand);
-const playerSelection = "rock";
+
 //const computerSelection = getComputedStyle();
 //console.log(playRound(playerSelection, computerSelection));
 
