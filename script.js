@@ -40,7 +40,7 @@ function game() {
     let lose = 'Lose';
     let winCount = 0, loseCount = 0;
 
-    for (var i = 0; i < 5; i++) {
+   // for (var i = 0; i < 5; i++) {
         let playerChoice = prompt("What is your choice?").toLowerCase();
         sentence = playRound(playerChoice, getComputerChoice());
         console.log(sentence);
@@ -50,7 +50,7 @@ function game() {
             loseCount++;
         }
 
-    }
+   // }
 
     if(winCount > loseCount) {
         return 'Congrats you won!';
