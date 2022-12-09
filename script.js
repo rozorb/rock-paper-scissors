@@ -1,3 +1,8 @@
+let pScore = 0; //player score
+let cScore = 0; //computer score
+let pDisplay = document.getElementById("playerScore");
+let cDisplay = document.getElementById("computerScore");
+let winner = document.getElementById("winner");
 //function that will return rock, paper, or scissors choice for computer
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3); //0-2 
@@ -55,32 +60,45 @@ buttons.forEach(btn => btn.addEventListener('click', playRound));
 function playRound (e) {
     let player = String(e.target.id);
     let computer = getComputerChoice();
-    let time = document.getElementById("display");
+    let display = document.getElementById("display");
     //conditions deciding who wins round;
     if(player === computer) {
         console.log('There is no winner!');
-        time.textContent = "There is no winner!";
+        display.textContent = "There is no winner!";
     } else if (player === 'rock' && computer === 'paper') {
-        time.textContent = "You Lose! Paper beats Rock";
+        display.textContent = "You Lose! Paper beats Rock";
+        cScore++;
     } else if (player === 'rock' && computer === 'scissors') {
         console.log('You Win! Rock beats Scissors');
-        time.textContent = "You Win! Rock beats Scissors";
+        display.textContent = "You Win! Rock beats Scissors";
+        pScore++;
     } else if (player === 'paper' && computer === 'rock') {
-        time.textContent = "You Win! Paper beats Rock";
+        display.textContent = "You Win! Paper beats Rock";
+        pScore++;
     } else if (player === 'paper' && computer === 'scissors') {
         console.log('You Lose! Scissors beats Paper');
-        time.textContent = "You Lose! Scissors beats Paper";
+        display.textContent = "You Lose! Scissors beats Paper";
+        cScore++;
     } else if (player === 'scissors' && computer === 'paper') {
         console.log('You win! Scissors beats Paper');
-        time.textContent = "You win! Scissors beats Paper";
+        display.textContent = "You win! Scissors beats Paper";
+        pScore++;
     } else if (player === 'scissors' && computer === 'rock') {
         console.log('You Lose! Rock beats Scissors');
-        time.textContent = "You Lose! Rock beats Scissors";
+        display.textContent = "You Lose! Rock beats Scissors";
+        cScore++;
     } 
+    pDisplay.textContent = pScore;
+    cDisplay.textContent = cScore;
+    if(pScore === 5) {
+        winner.textContent = "The player has won!";
+    }
+    if(cScore === 5) {
+        winner.textContent = "The computer has won!";
+    }
 }
 
-function phone() {
-    document.getElementsByClassName("display").innerHTML = "1.888.888.8888";
-}
+//display a running score
+//announce a winner after 5 points
 
 //console.log(game());
